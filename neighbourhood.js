@@ -33,19 +33,22 @@ rawNeighbourhood () {
 }
 
 sanitiseNeighbourhood (rawNeighbourhood) {
-    if (this.i === 0) { 
-    for (let k = 0; k < this.boardHeight; k++ ) {
+  if (this.i === 0) { 
+    for (let k = 0; k < 3; k++ ) {
       rawNeighbourhood[k][0] = 0;}
     }
   else if (this.i === this.boardWidth - 1) {
-    for (let k = 0; k < this.boardHeight; k++ ) {
-      rawNeighbourhood[k][this.boardWidth - 1] = 0;}
+    for (let k = 0; k < 3; k++ ) {
+      rawNeighbourhood[k][2] = 0;}
     }
   else if (this.j === 0) {
-    rawNeighbourhood[0] = 0;}
-  
+    for (let k = 0; k < 3; k++ ) {
+      rawNeighbourhood[0][k] = 0;}
+    }
   else if (this.j === this.boardHeight - 1) {
-   rawNeighbourhood[this.boardHeight - 1] = 0;}
+    for (let k = 0; k < 3; k++ ) {
+      rawNeighbourhood[2][k] = 0;}
+    }
     
     return rawNeighbourhood;
   }
