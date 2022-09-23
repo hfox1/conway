@@ -25,9 +25,9 @@ rawNeighbourhood () {
   // in index notation, a change of first index changes j coordinate, a change of second changes i
   const rawNeighbourArray = 
   [
-    [this.board[i-1][j-1], this.board[i-1][j], this.board[i-1][j+1]],
-    [this.board[i][j-1],                         this.board[i][j+1]],
-    [this.board[i+1][j-1], this.board[i+1][j],  this.board[i+1][j+1]]
+    [this.board[j-1][i-1], this.board[j-1][i], this.board[j-1][i+1]],
+    [this.board[j][i-1],                         this.board[j][i+1]],
+    [this.board[j+1][i-1], this.board[j+1][i],  this.board[j+1][i+1]]
   ]
   return rawNeighbourArray;
 }
