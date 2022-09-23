@@ -1,0 +1,26 @@
+{
+  "name": "conway",
+  "version": "1.0.0",
+  "description": "Conway's game of life",
+  "main": "neighbourhood.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfox1/conway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hfox1/conway/issues"
+  },
+  "homepage": "https://github.com/hfox1/conway#readme",
+
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}

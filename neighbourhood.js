@@ -1,58 +1,46 @@
-class Neighbourhood {
-constructor (board, i ,j) {
-  this.board = board
-  this.boardWidth = board[0].length;
-  this.boardHeight = board.length;
-  this.i = i;
-  this.j = j;
-}
+class NeighbourhoodConstructor {
+  constructor(board, i, j) {
+    this.board = board
+    this.boardWidth = board[0].length
+    this.boardHeight = board.length
+    this.i = i
+    this.j = j
+    this.neighbourhood = 'empty initialised neighbourhood'
+  }
 
-rawNeighbourhood () {
-  // // neighbours are defined:
-// // nOne  nTwo   nThree 
-// // nFour  []    nFive 
-// // nSix  nSeven nEight 
-  // const nOne = this.board[i-1][j-1];
-  // const nTwo = this.board[i][j-1];
-  // const nThree = this.board[i+1][j-1];
-  // const nFour = this.board[i-1][j];
-  // const nFive = this.board[i+1][j];
-  // const nSix = this.board[i-1][j+1];
-  // const nSeven = this.board[i][j+1] ;
-  // const nEight = this.board[i+1][j+1];
-  var i = this.i;
-  var j = this.j;
-  // in index notation, a change of first index changes j coordinate, a change of second changes i
-  const rawNeighbourArray = 
-  [
-    [this.board[j-1][i-1], this.board[j-1][i], this.board[j-1][i+1]],
-    [this.board[j][i-1],                         this.board[j][i+1]],
-    [this.board[j+1][i-1], this.board[j+1][i],  this.board[j+1][i+1]]
-  ]
-  return rawNeighbourArray;
-}
+  neighbourhood() {
+    var i = this.i
+    var j = this.j
+    let populatedNeighbourhood = [[], [], []]
 
-sanitiseNeighbourhood (rawNeighbourhood) {
-  if (this.i === 0) { 
-    for (let k = 0; k < 3; k++ ) {
-      rawNeighbourhood[k][0] = 0;}
+    for (let p = 0; p < 3; p++) {
+      if (!this.board[j - 1 + p]) {
+        //if the row doesnt exist:
+        populatedNeighbourhood[p] = [0, 0, 0] // then neighbourhood row is 000
+      } else {
+        // if the row exists
+        for (let q = 0; q < 3; q++) {
+          //look along the three columns
+          if (!this.board[j - 1 + p][i - 1 + q]) {
+            //if the column doesnt exist
+            populatedNeighbourhood[p].push(0)
+          } else {
+            populatedNeighbourhood[p].push(this.board[j - 1 + p][i - 1 + q]) // push in the neighbour
+          }
+        }
+      }
     }
-  else if (this.i === this.boardWidth - 1) {
-    for (let k = 0; k < 3; k++ ) {
-      rawNeighbourhood[k][2] = 0;}
+
+    populatedNeighbourhood[1][1] = 0 //delete target square
+    this.neighbourhood = populatedNeighbourhood
+    return populatedNeighbourhood
+  }
+
+  score() {
+    if (this.neighbourhood === 'empty initialised neighbourhood') {
+      return 'tried to score an empty neighbourhood'
     }
-  else if (this.j === 0) {
-    for (let k = 0; k < 3; k++ ) {
-      rawNeighbourhood[0][k] = 0;}
-    }
-  else if (this.j === this.boardHeight - 1) {
-    for (let k = 0; k < 3; k++ ) {
-      rawNeighbourhood[2][k] = 0;}
-    }
-    
-    return rawNeighbourhood;
   }
 }
 
-module.exports = Neighbourhood
-
+module.exports = NeighbourhoodConstructor
