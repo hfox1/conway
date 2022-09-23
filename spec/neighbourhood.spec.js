@@ -42,8 +42,16 @@ it("returns a neighbourhood (from middle of board)", () => {
   expect(neighbours[2][2]).toBe('x');
 });
 
-  xit("disallow neighbours off the edge of the board", () => {
-    let neighbourhood = new Neighbourhood(testBoard, 1, 0)
+  it("disallow neighbours off the edge of the board", () => {
+    let hood = new Neighbourhood(testBoard, 1, 0);
+    hood.rawNeighbourhood.sanitiseNeighbourhood();
+    expect(neighbours[0][0]).toBe('m');
+    expect(neighbours[0][1]).toBe('n');
+    expect(neighbours[0][2]).toBe('o');
+    expect(neighbours[1][0]).toBe('r');
+    expect(neighbours[1][1]).toBe('t');
+
+    
   });
 
 
