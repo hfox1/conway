@@ -11,26 +11,31 @@ const seedBoard =
 
 # Approach
 
+## Coordinates
+
 This Cartesian (i,j) grid is 0-indexed, starting at the top left: i grows positively across the page, j grows positively down the page.
-the element or 'square' (i,j) of the grid is accessed through Board[i][j].
+the element or 'square' (i,j) of the grid is accessed through Board[j][i].
 
-so for 'square' [i][j], we're checking Neighbourhood of 8 neighbours:
-[i-1][j-1], [i][j-1], [i+1][j-1],
-[i-1][j], [i+1][j],
-[i-1][j+1], [i][j+1], [i+1][j+1]
+Along the way, for 'square' (i, j) or board[j][i], we'll be checking a Neighbourhood of 8 neighbours:
+[j-1][i-1], [j-1][i], [j-1][i+1],
+[j][i-1], ----------- [j][i+1],
+[j+1][i-1], [j+1][i], [j+1][i+1]
 
-we take the sum of the contents of these neighbours, and apply Conway's rules to the sum to determine() the fate of square [i][j]
+## Starting board
 
-We iterate over the board, mapping the results to a new board to generate the next turn of the game
+```
+new Board(x, y)
+```
 
-say we're going into (4,3). So the global board generation it's map: start mapping through first row array: within that, map through that row and determine() each one.
+generates a empty board of width x and height y. For now, a user can supply their own array.
 
-so we've called determine(). That now needs to access the neighbiurhood score of the 8 squares that make up the neighbourhood.
+## Neighbourhoods
 
-We'll use a different class to calculate the sum of the neighbours. We'll load a board into the neighbourhood class.
-Then a `new Neighbourhood(i,j)` instance can be created for any square. Then a neighbourhood score board is generated
+The evolution of a square depends on the state of its 8 adjacent squares, or 'Neighbourhood'. The neighbourhoodConstructor class methods generate and score the neighbourhood of a source square, counting how many adjacent squares are activated and determining the fate of the source square.
 
-Then
+## Turns
+
+Each turn, we iterate over the board, determining the evolution of each square and mapping the results to a new board, generating the next turn of the game.
 
 # Tests
 
