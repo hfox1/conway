@@ -21,6 +21,7 @@ describe('NeighbourhoodConstructor', () => {
     // j
   ];
 
+  // neighbourhood function
   it('returns a neighbourhood (from middle of board)', () => {
     let neighbourhoodConstructor = new NeighbourhoodConstructor(letterBoard, 3, 2); // origin square "n"
     // expect:
@@ -55,6 +56,15 @@ describe('NeighbourhoodConstructor', () => {
     expect(neighbours[2][0]).toBe('f');
     expect(neighbours[2][1]).toBe('g');
     expect(neighbours[2][2]).toBe('h');
+  });
+
+  // score function
+
+  it('cannot score unpopulated neighbourhood', () => {
+    let neighbourhoodConstructor = new NeighbourhoodConstructor(numBoard, 2, 2);
+    expect(() => {
+      neighbourhoodConstructor.score();
+    }).toThrow('tried to score an empty initialised neighbourhood');
   });
 
   it('returns correct score mid-board', () => {
