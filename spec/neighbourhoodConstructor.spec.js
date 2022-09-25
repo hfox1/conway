@@ -1,6 +1,6 @@
 // 'Neighbours' off the edge of the board are not functioning neighbours
 // A square has a neighbourhood score
-const NeighbourhoodConstructor = require('../neighbourhood');
+const NeighbourhoodConstructor = require('../neighbourhoodConstructor');
 
 describe('NeighbourhoodConstructor', () => {
   const numBoard = [
@@ -27,7 +27,7 @@ describe('NeighbourhoodConstructor', () => {
     // hij
     // m0o
     // rst
-    let neighbours = neighbourhoodConstructor.neighbourhood();
+    let neighbours = neighbourhoodConstructor.hood();
     expect(neighbours[0][0]).toBe('h');
     expect(neighbours[0][1]).toBe('i');
     expect(neighbours[0][2]).toBe('j');
@@ -45,7 +45,7 @@ describe('NeighbourhoodConstructor', () => {
     // a0c
     // fgh
     let neighbourhoodConstructor = new NeighbourhoodConstructor(letterBoard, 1, 0); // origin square is "b"
-    let neighbours = neighbourhoodConstructor.neighbourhood();
+    let neighbours = neighbourhoodConstructor.hood();
     expect(neighbours[0][0]).toBe(0);
     expect(neighbours[0][1]).toBe(0);
     expect(neighbours[0][2]).toBe(0);
