@@ -5,6 +5,7 @@ class NeighbourhoodConstructor {
     this.boardHeight = board.length;
     this.i = i;
     this.j = j;
+    this.initialValue = board[j][i];
     this.hood = 'empty initialised neighbourhood';
   }
 

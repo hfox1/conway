@@ -1,29 +1,31 @@
-const NeighbourhoodConstructor = require('neighbourhoodConstructor');
-const Board = require('board');
+const NeighbourhoodConstructor = require('./neighbourhoodConstructor.js');
+const Board = require('./board.js');
 
 class Turn {
   constructor(board) {
     this.board = board;
   }
 
-  next (board) {
-    let width = board[0].length;
-    let height = board.length;
-    let newBoard;
+  next() {
+    let width = this.board[0].length;
+    let height = this.board.length;
+    let boardObj = new Board(width, height);
+    let newBoard = boardObj.board;
 
-
-    
-    
     for (var j = 0; j < height; j++) {
       for (var i = 0; i < width; i++) {
         let square = new NeighbourhoodConstructor(this.board, i, j);
-        let score = square.neighbourhood().score();
-        if 
-
-
+        square.neighbourhood();
+        let score = square.score();
+        if (square.initialValue === 1) {
+          score === 2 || score === 3 ? (newBoard[j][i] = 1) : (newBoard[j][i] = 0);
+        } else {
+          score === 3 ? (newBoard[j][i] = 1) : (newBoard[j][i] = 0);
+        }
       }
     }
-
-
+    console.log(newBoard);
+    return newBoard;
   }
 }
+module.exports = Turn;
