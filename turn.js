@@ -30,6 +30,7 @@ class Turn {
         }
       }
     }
+    console.log(newBoard);
     return newBoard;
   }
 }

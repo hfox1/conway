@@ -1,5 +1,8 @@
+# Approach
+
+## The type of board this game is played on:
+
 ```
-const seedBoard =
 [
   [0, 1, 1, 1, 1],
   [0, 0, 0, 0, 0],
@@ -9,12 +12,10 @@ const seedBoard =
 ];
 ```
 
-# Approach
-
 ## Coordinates
 
 This Cartesian (i,j) grid is 0-indexed, starting at the top left: i grows positively across the page, j grows positively down the page.
-the element or 'square' (i,j) of the grid is accessed through Board[j][i].
+The element or 'square' (i,j) of the grid is accessed through Board[j][i].
 
 Along the way, for 'square' (i, j) or board[j][i], we'll be checking a Neighbourhood of 8 neighbours:
 [j-1][i-1], [j-1][i], [j-1][i+1],
