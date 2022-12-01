@@ -32,9 +32,16 @@ describe('Game, and its CLI behaviour', () => {
       )
     );
   });
+  xit("says ' your starting board will be:'", () => {
+    game.startingBoardConfirm();
+    expect(console.log).toHaveBeenCalledWith(
+      expect.stringContaining('Your starting board will be: \n')
+    );
+  });
   it('catches starting board format errors', () => {});
   it('logs the evolution of the board', () => {});
 
   // const message = console.log.mock.calls[0][0];
   // log(message);
+  // let startingBoard = '[[1, 1, 1, 1, 1]]';
 });
