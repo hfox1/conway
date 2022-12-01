@@ -7,6 +7,13 @@ const demoBoard = () => {
   );
 };
 
+const startingBoardPrompt = () => {
+  prompt(
+    'Please enter a starting board in above format - you may increase the dimensions as you wish \n'
+  );
+};
+
 demoBoard();
 
 exports.demoBoard = demoBoard;
+exports.startingBoardPrompt = startingBoardPrompt;
