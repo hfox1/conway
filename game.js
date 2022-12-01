@@ -6,8 +6,12 @@ console.log(
 );
 
 let stringBoard = prompt(
-  'Please enter a starting board in above format - you may increase the dimensions as you wish. The smallest board allowed is [[1]] \n'
+  "Please enter a starting board in above format - you may increase the dimensions as you wish. The smallest board allowed is [[1]] \n\n To use the same board as above, enter 's'\n"
 );
+if (stringBoard.toUpperCase() == 'S') {
+  stringBoard =
+    '[[0, 1, 1, 1, 1],[0, 0, 0, 0, 0],[0, 1, 1, 1, 0],[0, 0, 0, 0, 0],[1, 1, 1, 1, 1]]';
+}
 let startingBoard = eval(stringBoard);
 
 console.log('Your starting board will be: \n', startingBoard);
@@ -22,7 +26,7 @@ while (input.toUpperCase() == 'Y') {
 
   input = prompt('Evolve? (Y/N)\n');
   if (input.toUpperCase() == 'N') {
-    console.log('Thanks for playing');
+    console.log('The end');
     break;
   }
 }

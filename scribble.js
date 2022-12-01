@@ -24,9 +24,19 @@ startingBoardConfirm();
 exports.demoBoard = demoBoard;
 exports.startingBoardPrompt = startingBoardPrompt;
 
-// let input = prompt('Evolve? (Y/N)');
-// until (input == 'N') {
-//     let turn = new Turn(board);
-//     board = turn.next();
-//     input = prompt('Evolve? (Y/N)');
-//   };
+// mold oscillator
+
+// ...OO
+// ..O..O
+// O..O.O
+// ....O
+// O.OO
+// .O
+
+[
+  [0, 0, 0, 1, 1, 0],
+  [0, 0, 1, 0, 0, 1],
+  [1, 0, 0, 1, 0, 1],
+  [0, 0, 0, 0, 1, 0],
+  [0, 1, 0, 0, 0, 0],
+];
