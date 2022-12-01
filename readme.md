@@ -3,12 +3,13 @@
 This in my ongoing implementation of Conway's Game of Life
 
 ## Requirements
-
+```
 npm install
-
+```
 ## Gameplay
-
-Run game.js in Node
+```
+node game.js
+```
 
 ## Approach
 
