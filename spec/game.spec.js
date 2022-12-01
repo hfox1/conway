@@ -1,4 +1,4 @@
-const Game = require('../game.js');
+const game = require('../game.js');
 
 describe('Game, and its CLI behaviour', () => {
   const log = console.log;
@@ -12,7 +12,7 @@ describe('Game, and its CLI behaviour', () => {
     expect(console.log).not.toHaveBeenCalled();
   });
   test('some log', () => {
-    startingBoardPrompt();
+    game.demoBoard();
     expect(console.log).toHaveBeenCalledWith(
       expect.stringContaining(
         '[[0, 1, 1, 1, 1],[0, 0, 0, 0, 0],[0, 1, 1, 1, 0],[0, 0, 0, 0, 0],[1, 1, 1, 1, 1]]'
