@@ -5,16 +5,24 @@ console.log(
   '[[0, 1, 1, 1, 1],[0, 0, 0, 0, 0],[0, 1, 1, 1, 0],[0, 0, 0, 0, 0],[1, 1, 1, 1, 1]]'
 );
 
-let startingBoard = prompt(
+let stringBoard = prompt(
   'Please enter a starting board in above format - you may increase the dimensions as you wish \n'
 );
+let startingBoard = eval(stringBoard);
 
 console.log('Your starting board will be: \n', startingBoard);
 
-let input = prompt('Evolve? (Y/N)');
+let input = prompt('Evolve? (Y/N)\n');
 
-// until (input == 'N') {
-//     let turn = new Turn(board);
-//     board = turn.next();
-//     input = prompt('Evolve? (Y/N)');
-//   };
+let board = startingBoard;
+
+while (input.toUpperCase() == 'Y') {
+  let turn = new Turn(board);
+  board = turn.next();
+
+  input = prompt('Evolve? (Y/N)\n');
+  if (input.toUpperCase() == 'N') {
+    console.log('Thanks for playing');
+    break;
+  }
+}

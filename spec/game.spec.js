@@ -21,7 +21,7 @@ describe('Game, and its CLI behaviour', () => {
   afterAll(() => {
     console.log = log;
   });
-  xit('no log', () => {
+  it('no log', () => {
     // placeholder test waiting to add functionality that doesnt log
     expect(console.log).not.toHaveBeenCalled();
   });
