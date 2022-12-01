@@ -1,15 +1,28 @@
 const prompt = require('prompt-sync')({ sigint: true });
 const Turn = require('./turn');
 
-const demoBoard = console.log(
-  '[[0, 1, 1, 1, 1],[0, 0, 0, 0, 0],[0, 1, 1, 1, 0],[0, 0, 0, 0, 0],[1, 1, 1, 1, 1]]'
-);
+const demoBoard = () => {
+  console.log(
+    '[[0, 1, 1, 1, 1],[0, 0, 0, 0, 0],[0, 1, 1, 1, 0],[0, 0, 0, 0, 0],[1, 1, 1, 1, 1]]'
+  );
+};
 
-const startingBoardPrompt = prompt(
-  'Please enter a starting board in above format - you may increase the dimensions as you wish \n'
-);
-console.log('Your starting board will be: \n', startingBoardPrompt);
-let board = startingBoardPrompt;
+const startingBoardPrompt = () => {
+  prompt(
+    'Please enter a starting board in above format - you may increase the dimensions as you wish \n'
+  );
+};
+
+const startingBoardConfirm = () => {
+  console.log('Your starting board will be: \n', startingBoard);
+};
+
+demoBoard();
+let startingBoard = startingBoardPrompt();
+startingBoardConfirm();
+
+exports.demoBoard = demoBoard;
+exports.startingBoardPrompt = startingBoardPrompt;
 
 // let input = prompt('Evolve? (Y/N)');
 // until (input == 'N') {
@@ -17,3 +30,8 @@ let board = startingBoardPrompt;
 //     board = turn.next();
 //     input = prompt('Evolve? (Y/N)');
 //   };
+
+let format = /\[\n* *(\[[0-1](, *[0-1])*\],*\n* *)+\]/;
+if (!format.test(JSON.stringify(board))) {
+  throw Error('incorrectly formatted board');
+}

@@ -4,6 +4,15 @@ const game = require('../game.js');
 // Currently end-to-end testing is manual playtesting.
 // Next will be automated end-to-end testing mocking CLI user input
 
+jest.mock(
+  'prompt-sync',
+  () => {
+    const mPrompt = jest.fn();
+    return jest.fn(() => mPrompt);
+  },
+  { virtual: true }
+);
+
 describe('Game, and its CLI behaviour', () => {
   const log = console.log;
   beforeEach(() => {
@@ -16,7 +25,7 @@ describe('Game, and its CLI behaviour', () => {
     // placeholder test waiting to add functionality that doesnt log
     expect(console.log).not.toHaveBeenCalled();
   });
-  it('prints demo board for the user', () => {
+  xit('prints demo board for the user', () => {
     game.demoBoard();
     expect(console.log).toHaveBeenCalledWith(
       expect.stringContaining(
@@ -24,8 +33,11 @@ describe('Game, and its CLI behaviour', () => {
       )
     );
   });
-  it('says "starting board will be:" and stores board ', () => {
-    game.startingBoardPrompt();
+  xit('says "starting board will be:" and stores board ', () => {
+    jest.mock('game', () => {
+      return { startingBoardPrompt: jest.fn() };
+    });
+    game.startingBoardPrompt.mockResolvedValueOnce('');
     expect(console.log).toHaveBeenCalledWith(
       expect.stringContaining(
         'Please enter a starting board in above format - you may increase the dimensions as you wish \n'

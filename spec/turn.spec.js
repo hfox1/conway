@@ -3,12 +3,11 @@ const Turn = require('../turn.js');
 describe('turn', () => {
   it('evolves the board', () => {
     const numBoard = [
-      [0, 1, 1, 1, 1], // j
+      [0, 1, 1, 1, 1],
       [0, 0, 0, 0, 0],
       [0, 1, 1, 1, 0],
       [0, 0, 0, 0, 0],
       [1, 1, 1, 1, 1],
-      // i
     ];
     let turn = new Turn(numBoard);
     let result = turn.next();
@@ -20,6 +19,13 @@ describe('turn', () => {
       [0, 1, 1, 1, 0],
     ]);
   });
-
-  //end
+  it('catches incorrectly formatted boards', () => {
+    const numBoard = [
+      [0, 1, 1, 1, 1][(0, 0, 0, 0, 0)],
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 0, 0],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(new Turn(numBoard)).toThrow('incorrectly formatted board');
+  });
 });
