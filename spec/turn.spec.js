@@ -26,6 +26,8 @@ describe('turn', () => {
       [0, 0, 0, 0, 0],
       [1, 1, 1, 1, 1],
     ];
-    expect(new Turn(numBoard)).toThrow('incorrectly formatted board');
+    expect(() => {
+      new Turn(numBoard);
+    }).toThrow('incorrectly formatted board');
   });
 });

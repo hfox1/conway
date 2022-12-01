@@ -30,8 +30,3 @@ exports.startingBoardPrompt = startingBoardPrompt;
 //     board = turn.next();
 //     input = prompt('Evolve? (Y/N)');
 //   };
-
-let format = /\[\n* *(\[[0-1](, *[0-1])*\],*\n* *)+\]/;
-if (!format.test(JSON.stringify(board))) {
-  throw Error('incorrectly formatted board');
-}
