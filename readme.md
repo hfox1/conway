@@ -1,3 +1,11 @@
+# Requirements
+
+npm install prompt-sync
+
+# Gameplay
+
+Run game.js in Node
+
 # Approach
 
 ## The type of board this game is played on:
@@ -37,12 +45,3 @@ The evolution of a square depends on the state of its 8 adjacent squares, or 'Ne
 ## Turns
 
 Each turn, we iterate over the board, determining the evolution of each square and mapping the results to a new board, generating the next turn of the game.
-
-# Tests
-
-'Neighbours' off the edge of the board are not functioning neighbours  
-A square has a neighbourhood score
-
-Game
-A single square turns off
-A blinker blinks
