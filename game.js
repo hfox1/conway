@@ -6,7 +6,7 @@ console.log(
 );
 
 let stringBoard = prompt(
-  "Please enter a starting board in above format - you may increase the dimensions as you wish. The smallest board allowed is [[1]] \n\n To use the same board as above, enter 's'\n"
+  "Please enter a starting board in above format - you may change the dimensions as you wish. The smallest board allowed is [[1]] \n\n To use the same board as above, enter 's'\n"
 );
 if (stringBoard.toUpperCase() == 'S') {
   stringBoard =
