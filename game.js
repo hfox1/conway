@@ -6,7 +6,7 @@ console.log(
 );
 
 let stringBoard = prompt(
-  'Please enter a starting board in above format - you may increase the dimensions as you wish \n'
+  'Please enter a starting board in above format - you may increase the dimensions as you wish. The smallest board allowed is [[1]] \n'
 );
 let startingBoard = eval(stringBoard);
 
