@@ -13,7 +13,7 @@ jest.mock(
   { virtual: true }
 );
 
-describe('Game, and its CLI behaviour', () => {
+describe('Game CLI behaviour', () => {
   const log = console.log;
   beforeEach(() => {
     console.log = jest.fn();
