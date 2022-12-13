@@ -3,10 +3,13 @@
 This in my ongoing implementation of Conway's Game of Life
 
 ## Requirements
+
 ```
 npm install
 ```
+
 ## Gameplay
+
 ```
 node game.js
 ```
@@ -31,6 +34,7 @@ This Cartesian (i,j) grid is 0-indexed, starting at the top left: i grows positi
 The element or 'square' (i,j) of the grid is accessed through Board[j][i].
 
 Along the way, for 'square' (i, j) or board[j][i], we'll be checking a Neighbourhood of 8 neighbours:
+
 ```
 [j-1][i-1], [j-1][i], [j-1][i+1],
 [j][i-1], ----------- [j][i+1],
@@ -55,7 +59,7 @@ Each turn, we iterate over the board, determining the evolution of each square a
 
 ## Future work
 
-1. Search for deeper mathematical structures that provide pre-code abstraction (and so refactoring) of the current neighbourhood loops.
+1. Avoid 2 nested for loops: search for deeper mathematical structures that provide pre-code abstraction (and so refactoring) of these current neighbourhood loops.
 
 2. Add a random board generator
 
